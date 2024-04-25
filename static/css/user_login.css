@@ -1,0 +1,80 @@
+.login_form{
+    padding: 3% 2% 3% 2%;
+    text-align: center;
+    font-family: "B Roya", "Gill Sans MT", serif;
+    font-weight: lighter;
+    margin: 15% 32% 10% 32%;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 0px solid white;
+}
+.login_form input{
+    font-family: "B Roya", "Gill Sans MT", serif;
+    font-size: large;
+    font-weight: bold;
+    margin: 2.5% 0% 2.5% 0%;
+    width: 86%;
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: black;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.login_form input:focus, input:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: white;
+}
+
+.login_form input::placeholder {
+ color: black;
+}
+
+.login_form input:focus::placeholder {
+ opacity: 0;
+ transition: opacity .3s;
+}
+.login_form button{
+    font-size: large;
+    font-weight: bold;
+    font-family: "B Roya", "Gill Sans MT", serif;
+    margin: 0% 0% 2.5% 0%;
+    width: 50%;
+    border:  2px solid #777;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+    padding: 1% 0% 1% 0%;
+    transition-duration: 400ms;
+}
+.login_form button:hover{
+    color: white;
+    border-color: white;
+    width: 60%;
+}
+.create_account_link{
+    text-decoration: none;
+    color: #005FD4;
+}
+.create_account_link:hover{
+    font-weight: bolder;
+    color: #2800FF;
+}
+/*button options*/
+
+
+
+
+
+
+
+
+

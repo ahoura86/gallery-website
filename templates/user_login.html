@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/user_login.css' %}">
+    <meta charset="UTF-8">
+    <title>Log in</title>
+</head>
+<body>
+{% include "top_pannel.html" %}
+<form class="login_form" action="/login_form" method="post">
+    {% csrf_token %}
+    <p style="font-weight: bolder"> اطلاعات خود را وارد کنید و وارد حساب کاربری خود شوید</p>
+    <input type="text" name="name" placeholder="نام کاربری" required>
+    <input type="email" name="email" placeholder="آدرس ایمیل" required>
+    <input type="password" name="password" placeholder="رمز عبور" required>
+    <button type="reset" name="button" value="reset1">تنظیم مجدد</button>
+    <button type="submit" name="button" value="submit1">ورود به حساب</button>
+    <p style="font-weight: bolder">اگر حساب کاربری ندارید<a href="/signup_form" class="create_account_link"> یک حساب ایجاد کنید</a> </p>
+    {{ validation_and_success }}
+</form>
+<style>
+    body{
+        direction: rtl;
+        background-image: url("{% static 'image/neon_colors_5k-5120x2880-2726148249.jpg' %}");
+        background-size: cover;
+        font-size: large;
+        font-weight: bold;
+    }
+    .create_account_link{
+        text-decoration: none;
+        color: #005FD4;
+        transition-duration: 400ms;
+    }
+    .create_account_link:hover{
+        color: #2800FF;
+    }
+</style>
+</body>
+</html>

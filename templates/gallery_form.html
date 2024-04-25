@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load custom_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gallery form</title>
+</head>
+<body>
+{% include "top_pannel.html" %}
+<div>
+    <form method="post" enctype="multipart/form-data" action="" class="image_form">
+        {% csrf_token %}
+        فایل تصویر
+        <p class="image_field">{{ form.img }}</p>
+        عنوان تصویر
+        <p>{{ form.name }}</p>
+        توضیحات تصویر
+        <p>{{ form.Image_description }}</p>
+        موضوع تصویر
+        <p>{{ form.Image_category }}</p>
+{#        {{ form.as_p }}#}
+        <button type="reset" name="button" value="reset1">تنظیم مجدد</button>
+        <button type="submit" name="button" value="submit">ثیت اطلاعات</button>
+    </form>
+</div>
+<div class="validation">
+    {{ validation_and_success }}
+</div>
+<style>
+    body{
+        direction: rtl;
+        background-image: url("{% static 'image/1284952-top-neon-blue-backgrounds-2048x1152-3266355084.jpg' %}");
+        background-size: cover;
+        font-size: large;
+    }
+    body a{
+        text-decoration: none;
+        color: white;
+    }
+    .validation{
+        font-family: "B Roya", "Gill Sans MT", serif;
+        font-size: x-large;
+        font-weight: bold;
+        width: 50%;
+        margin: -10% 47% 5%;
+        color: white;
+    }
+    .image_form{
+    width: 40%;
+    padding: 3% 2% 3% 2%;
+    text-align: center;
+    font-family: "B Roya", "Gill Sans MT", serif;
+    font-weight: bold;
+    margin: 10% 30% 10% 30%;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 0px solid white;
+    }
+    input, select{
+    font-family: "B Roya", "Gill Sans MT", serif;
+    font-size: large;
+    font-weight: bold;
+    {#margin: 2.5% 0% 2.5% 0%;#}
+    width: 75%;
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: black;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    input::-webkit-file-upload-button{
+        background-color: transparent;
+        color: black;
+        border: 2px solid #777;
+        border-radius: 10px;
+        width: 50%;
+        transition-duration: 400ms;
+        margin: 0%  10% 0% 10%;
+    }
+    input::-webkit-file-upload-button:hover{
+        width: 60%;
+        margin: 0% 5% 0% 5%;
+    }
+    input:focus, input:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: white;
+    }
+    input::placeholder {
+     color: black;
+    }
+    input:focus::placeholder {
+     opacity: 0;
+     transition: opacity .3s;
+    }
+    select:focus, select:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: white;
+    }
+
+    select::placeholder {
+     color: black;
+    }
+
+    select:focus::placeholder {
+     opacity: 0;
+     transition: opacity .3s;
+    }
+    .image_field input{
+        width: 80%;
+        {#margin: 0% 20% 0% 20% ;#}
+        border: 0px;
+    }
+    button{
+    font-size: large;
+    font-weight: bold;
+    font-family: "B Roya", "Gill Sans MT", serif;
+    width: 50%;
+    border:  2px solid #777;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+    padding: 1% 0% 1% 0%;
+        margin-bottom: 2%;
+    transition-duration: 400ms;
+    }
+    button:hover{
+        color: white;
+        border-color: white;
+        width: 60%;
+    }
+</style>
+</body>
+</html>

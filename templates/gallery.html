@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Gallery</title>
+</head>
+<body>
+{#page header ---------------#}
+<header>
+    Star gallery
+</header>
+{#page nav bar --------------#}
+<nav>
+    <hr>
+    <ul>
+        <li><a href="/user_page">حساب کاربری</a></li>
+        <li><a href="/gallery_form">بارگذاری تصویر</a></li>
+        <li><a href="">درباره ما</a></li>
+        <li><a href="">ارتباط با ما</a></li>
+        <li><a href="/user_logout">خروج از حساب</a></li>
+    </ul>
+    <div style="padding: 0% 0% 15% 0%">
+        <h1 style="font-size: xxx-large; font-weight: bolder; font-family: 'Gill Sans MT'">Star gallery</h1>
+        <form action="/gallery" method="post">
+            {% csrf_token %} 
+            دنبال تصویر خاصی هستی؟ اینجا جستجو کن
+            <br>
+            <button type="submit" name="button" value="search">جستجو</button>
+            <input type="text" name="search" placeholder="جستجو میان تمام تصاویر">
+        </form>
+    </div>
+    <hr>
+</nav>
+
+{#page main part for showing images ------------#}
+<main>
+    <p>شما می توانید جدید ترین تصاویر سایت را اینجا مشاهده کنید</p>
+    <hr style="width: 90%">
+    <div>دنبال چه موضوعی می‌گردی؟ اینجا انتخاب کن</div>
+    <div>
+        {% for category in categories %}
+            <a href="gallery_category/{{ category }}" class="category_links">{{ category }}</a>
+        {% endfor %}
+    </div>
+    <div class="container">
+        {% for image in images %}
+            <div class="image_box">
+            <a class="image_link" href="/image_click/{{ image.Image_id }}">
+                <img src="{{ image.img.url }} " alt="{{ image.name }}">
+            </a>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+
+{#gallery style #}
+<style>
+    body{
+        direction: rtl;
+        margin: 0%;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    header{
+        background-color: black;
+        color: white;
+        width: 90%;
+        font-family: "Gill Sans MT", serif ;
+        font-size: x-large;
+        padding: 1% 5% 1% 5%;
+    }
+    nav{
+        text-align: center;
+        background: url("{% static 'image/1284952-top-neon-blue-backgrounds-2048x1152-3266355084.jpg' %}");
+        background-size: cover;
+        {#background: transparent;#}
+        color: white;
+        width: 90%;
+        font-family: "B Roya", serif ;
+        font-size: x-large;
+        padding: 1% 5% 1% 5%;
+    }
+    ul{
+        margin-bottom: 15%;
+    }
+    nav li{
+        display: inline;
+        border-bottom: solid 2px transparent;
+        margin: 0% 2.5% 0% 2.5%;
+        transition-duration: 400ms;
+    }
+    nav li:hover{
+        padding: 0% 2% 0% 2%;
+        border-bottom-color: white;
+        width: 10%;
+    }
+    .link{
+        background-color: #7b24ff;
+        font-size: xx-large;
+        padding: 0% 2% 0% 2%;
+        transition-duration: 400ms;
+        border-radius: 5px;
+    }
+    .link:hover{
+        background-color: #85bdff;
+        padding: 0% 4% 0% 4%;
+    }
+    form{
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+    input{
+        color: black;
+        width: 37%;
+        font-size: x-large;
+        border:0;
+        border-radius: 1000px 0px 0px 1000px;
+        background: white;
+        transition-duration: 300ms;
+        font-family: "B Roya";
+    }
+    input:hover{
+        width: 40%;
+    }
+    input:focus{
+        width: 40%;
+    }
+    button{
+        color: black;
+        font-size: x-large;
+        font-family: "B Roya", serif;
+        border:0;
+        border-radius: 0px 1000px 1000px 0px;
+        background: white;
+        transition-duration: 300ms;
+        width: 7%;
+    }
+    button:hover{
+        width: 10%;
+    }
+    main{
+        color: black;
+        font-size: x-large;
+        font-family: "B Roya", serif;
+        text-align: center;
+        background-color: white;
+        padding-bottom: 5%;
+    }
+    .category_links{
+        color: white;
+        background-color: #7b24ff;
+        display: inline-grid;
+        width: 9%;
+        border: 0;
+        border-radius: 5px;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+        transition-duration: 300ms;
+    }
+    .category_links:hover{
+        background-color: #85bdff;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+    p{
+        font-family: "B Roya", "Gill Sans MT", serif;
+        margin-top: 4%;
+    }
+    .container{
+        width: 90%;
+        border: solid 2px #777777;
+        border-radius: 15px;
+        padding: 1% 9% 1% 0%;
+        margin-top: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+    }
+    .box{
+        color: black;
+    }
+    .image_box{
+        width: 20%;
+        margin: 1%;
+        transition-duration: 300ms;
+    }
+    .image_box:hover{
+        width: 22%;
+        margin: 0%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+</style>
+</body>
+</html>
+
+
+
+
+
